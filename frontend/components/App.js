@@ -31,7 +31,7 @@ export default class App extends React.Component {
     console.log(todos)
     return (
       <div>
-        <h2>Todo List Git Check</h2>
+        <h2>Todo List</h2>
 
         <TodoList todos={todos}/>
         <Form />
