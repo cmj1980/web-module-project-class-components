@@ -12,4 +12,3 @@ export default class TodoList extends React.Component {
   </ul>);
   }
 }
-//test
