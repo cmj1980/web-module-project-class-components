@@ -24,6 +24,37 @@ export default class App extends React.Component {
     }
   }
 
+  handleToggle = (clickedId) => {
+
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.map(todo => {
+        if (todo.id === clickedId) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          }
+        } 
+
+          return todo
+        
+      })
+    })
+  }
+   
+  handleAdd = (name) => {
+
+    const newTodo = {
+      name: name,
+      id: Date.now(),
+      completed: false 
+    }  
+
+    this.setState({
+      ...this.state,
+      todos: [...this.state.todos, newTodo]    
+    })
+  }
 
   handleClear = () => {
    this.setState({
@@ -41,8 +72,8 @@ export default class App extends React.Component {
     return (
       <div>
         <h2>Todo List</h2>
-        <TodoList  todos={todos}/>
-        <Form />
+        <TodoList handleToggle={this.handleToggle} todos={todos}/>
+        <Form handleAdd={this.handleAdd}  />
         <button onClick={this.handleClear}>Clear List</button>
       </div>
     )
